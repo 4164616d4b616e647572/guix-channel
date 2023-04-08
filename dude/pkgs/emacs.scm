@@ -7,7 +7,8 @@
 
 (define-public emacs-stuff
   (let ((revision "4")
-        (commit "9b1eed2ac2b5c2f645877d7e1ec5dae0c8b7ecf2"))
+        (commit "9b1eed2ac2b5c2f645877d7e1ec5dae0c8b7ecf2")
+        (git-page "https://github.com/4164616d4b616e647572/stuff"))
     (package
       (name "emacs-stuff")
       (version (git-version "0.1" revision commit))
@@ -15,7 +16,7 @@
        (origin
 	 (method git-fetch)
 	 (uri (git-reference
-	       (url "https://github.com/adam-kandur/stuff")
+	       (url git-page)
 	       (commit commit)))
 	 (file-name (git-file-name name version))
 	 (sha256
@@ -25,7 +26,7 @@
        (list emacs-async))
       (arguments
        `(#:include '("\\.el$")))
-      (home-page "https://github.com/KefirTheAutomator/stuff")
+      (home-page git-page)
       (synopsis "my emacs package")
       (description "my emacs package")
       (license license:gpl3+))))
