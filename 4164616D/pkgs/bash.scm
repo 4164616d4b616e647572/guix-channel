@@ -1,4 +1,4 @@
-(define-module (dude pkgs bash)
+(define-module (4164616D pkgs bash)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
   #:use-module (gnu packages xorg)

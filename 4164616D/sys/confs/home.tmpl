@@ -3,11 +3,11 @@
              (gnu services samba)
              (nongnu packages linux)
              (nongnu system linux-initrd)
-	     (dude srvcs workstation)
-             (dude pkgs linux))
+	     (4164616D srvcs workstation)
+             (4164616D pkgs linux))
 
 (operating-system
-  (kernel dude-linux-git)
+  (kernel 4164616D-linux-git)
   (initrd microcode-initrd)
   (firmware (list linux-firmware))
   (host-name "home")
@@ -37,7 +37,7 @@
                                         "audio" "video")))
                %base-user-accounts))
   (packages (append
-	     %dude-workstation-packages
+	     %4164616D-workstation-packages
 	     (map (compose list specification->package+output)
 		  '("emacs-stuff"))))
   (services (cons*
@@ -45,7 +45,7 @@
                                           (enable-smbd? #t)
                                           (config-file (local-file "services/smb.conf"))))
              (service openssh-service-type)
-             %dude-workstation-services))
+             %4164616D-workstation-services))
 
   ;; Allow resolution of '.local' host names with mDNS.
   (name-service-switch %mdns-host-lookup-nss))

@@ -1,4 +1,4 @@
-(define-module (dude pkgs emacs)
+(define-module (4164616D pkgs emacs)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
   #:use-module (guix git-download)

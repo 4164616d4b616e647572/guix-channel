@@ -1,4 +1,4 @@
-(define-module (dude sys vars)
+(define-module (4164616D sys vars)
   #:export (%base-substitutes-urls
             %substitutes-urls))
 

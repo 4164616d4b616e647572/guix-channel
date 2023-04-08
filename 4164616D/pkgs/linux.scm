@@ -1,4 +1,4 @@
-(define-module (dude pkgs linux)
+(define-module (4164616D pkgs linux)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix download)
   #:use-module (guix packages)
@@ -6,7 +6,7 @@
   #:use-module (guix git-download)
   #:use-module (gnu packages linux))
 
-(define* (corrupt-linux-git kernel-package version hash url #:key (name "dude-linux-git"))
+(define* (corrupt-linux-git kernel-package version hash url #:key (name "4164616D-linux-git"))
   (package
     (inherit kernel-package)
     (name name)
@@ -25,7 +25,7 @@
      "The unmodified Linux kernel, including nonfree blobs, for running Guix
 System on hardware which requires nonfree software to function.")))
 
-(define-public dude-linux-git
+(define-public 4164616D-linux-git
   (corrupt-linux-git linux-libre-6.1 "v6.1-rc1"
                      "0agzh4c7ldg9jqinm9zngzbj8rp24l4bk7slmb7xg1d87m01k8dz"
                      "https://github.com/torvalds/linux"))

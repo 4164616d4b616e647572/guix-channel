@@ -1,5 +1,5 @@
-(define-module (dude srvcs base)
-  #:use-module ((dude sys vars) #:prefix dude-vars:)
+(define-module (4164616D srvcs base)
+  #:use-module ((4164616D sys vars) #:prefix 4164616D-vars:)
   #:use-module (gnu system)
   #:use-module (gnu packages)
   #:use-module (gnu services base)
@@ -12,17 +12,17 @@
   #:use-module (gnu packages bash)
   #:use-module (gnu packages base)
   #:use-module (guix gexp)
-  #:export (%dude-base-packages
-            %dude-base-services))
+  #:export (%4164616D-base-packages
+            %4164616D-base-services))
 
-(define %dude-base-packages
+(define %4164616D-base-packages
   (append
    %base-packages
    (map (compose list specification->package+output)
         '("git" "git:send-email" "xrandr" "openssh"
           "emacs" "emacs-exwm" "emacs-async" "nss-certs"))))
 
-(define %dude-base-services
+(define %4164616D-base-services
   (list (service login-service-type)
 
         (service virtual-terminal-service-type)
@@ -56,7 +56,7 @@
         (service urandom-seed-service-type)
         (service guix-service-type
 		 (guix-configuration
-		  (substitute-urls dude-vars:%substitutes-urls)))
+		  (substitute-urls 4164616D-vars:%substitutes-urls)))
         (service nscd-service-type)
 
         (service rottlog-service-type)

@@ -1,4 +1,4 @@
-(define-module (dude pkgs python)
+(define-module (4164616D pkgs python)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
   #:use-module (guix download)
@@ -18,8 +18,6 @@
   #:use-module (gnu packages game-development))
 
 (define-public python-tcod
-  ;; todo
-  ;; python-httpx-0.23.3
   ;; named branch is outdated
   (let ((commit "d3419a5b4593c7df1580427fc07616d798c85856")
         (revision "1"))
@@ -54,13 +52,16 @@
       (propagated-inputs
        (list python-numpy
              python-typing-extensions
-             python-cffi))
+             python-cffi
+             libtcod))
       (home-page "https://github.com/libtcod/python-tcod")
       (synopsis
-       "This library is a Python cffi port of libtcod")
+       "Python port of libtcod")
       (description
-       "A high-performance Python port of libtcod.
-Includes the libtcodpy module for backwards compatibility with older projects.")
+       "Python package which provides bindings to libtcod.  This allows Python
+users to use libtcod in their Python projects.  libtcod itself is a collection
+of tools and algorithms for developing traditional roguelikes.  Such as
+field-of-view, pathfinding, and a tile-based terminal emulator.")
       (license license:bsd-2))))
 
 (define-public python-telegram-bot

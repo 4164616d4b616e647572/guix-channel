@@ -1,6 +1,6 @@
 (use-modules (gnu)
              (gnu services ssh)
-	     (dude srvcs workstation))
+	     (4164616D srvcs workstation))
 
 (operating-system
   (locale "en_US.utf8")
@@ -15,11 +15,11 @@
                  (supplementary-groups
 		  '("wheel" "netdev" "audio" "video")))
 		%base-user-accounts))
-  (packages (append %dude-workstation-packages
+  (packages (append %4164616D-workstation-packages
                     (map (compose list specification->package+output)
                          '("emacs-stuff"))))
   (services (append
-             %dude-workstation-services
+             %4164616D-workstation-services
              (list (service openssh-service-type))))
   (bootloader
    (bootloader-configuration

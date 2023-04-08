@@ -1,4 +1,4 @@
-(define-module (dude pkgs java)
+(define-module (4164616D pkgs java)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
   #:use-module (gnu packages java)

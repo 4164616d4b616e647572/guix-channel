@@ -1,6 +1,6 @@
-(define-module (dude srvcs workstation)
-  #:use-module (dude pkgs emacs)
-  #:use-module (dude srvcs base)
+(define-module (4164616D srvcs workstation)
+  #:use-module (4164616D pkgs emacs)
+  #:use-module (4164616D srvcs base)
   #:use-module (gnu services)
   #:use-module (gnu services base)
   #:use-module (gnu services networking)
@@ -17,18 +17,18 @@
   #:use-module (gnu packages gnome) ;; for network-manager-applet
   #:use-module (gnu system setuid)
   #:use-module (guix gexp)
-  #:export (%dude-workstation-packages
-            %dude-workstation-services))
+  #:export (%4164616D-workstation-packages
+            %4164616D-workstation-services))
 
-(define %dude-workstation-packages
+(define %4164616D-workstation-packages
   (append
-   %dude-base-packages
+   %4164616D-base-packages
    (map (compose list specification->package+output)
         '("emacs-guix"))))
 
-(define %dude-workstation-services
+(define %4164616D-workstation-services
   (append
-   %dude-base-services
+   %4164616D-base-services
    (list
     (service gdm-service-type)
     (screen-locker-service xlockmore "xlock")
