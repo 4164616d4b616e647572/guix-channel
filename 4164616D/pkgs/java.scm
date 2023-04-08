@@ -26,17 +26,30 @@
          #:jdk ,openjdk11
          #:tests? #f
          #:modules ((guix build ant-build-system)
-                      (guix build utils)
-                      (ice-9 match)
-                      (srfi srfi-26))
+                    (guix build utils)
+                    (ice-9 match)
+                    (srfi srfi-26))
          #:phases
          (modify-phases %standard-phases
            (replace 'install
              (lambda* (#:key inputs outputs #:allow-other-keys)
-               (let* ((share (string-append (assoc-ref outputs "out") "/share/java")))
-                 (invoke "pwd")
-                 (invoke "ls" "-al")
-                 ))))
+               (let* ((share (string-append (assoc-ref outputs "out") "/share/java"))
+                      (bin (string-append (assoc-ref outputs "out") "/bin"))
+                      (jar "hello-world.jar")
+                      (java-cp (string-append share "/" jar))
+                      (java (search-input-file inputs "/bin/java"))
+                      (wrapper "java-hello")
+                      (class "org.example.Main")
+                      (file (string-append bin "/" wrapper)))
+                 (install-file (string-append "build/jar/" jar) share)
+                 (mkdir-p bin)
+                 (with-output-to-file file
+                   (lambda _
+                     (display
+                      (string-append
+                       "#!/bin/sh\n"
+                       java " -cp " java-cp " " class " \"$@\""))))
+                 (chmod file #o755)))))
          ))
       (home-page "")
       (synopsis "")
